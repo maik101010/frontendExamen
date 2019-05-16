@@ -1,0 +1,26 @@
+<h2>Editar Examen</h2>
+
+<!-- <input type="text" value="{{model.examen}}">  -->
+<div>
+ <!--    <form (ngSubmit)="onSubmit()" #examenForm="ngForm">
+		<label>Tema: 
+			<input [(ngModel)]="model.tema" name="tema" value="{{tema}}" />
+			<input [(ngModel)]="model.id" name="id" value="{{id}}" />
+		</label>
+		(click) passes input value to add() and then clears the input
+		<button (click)="updateExamen(model)">Agregar Examen</button> 
+	    <button type="submit" class="btn btn-success">Submit</button>
+	</form> -->
+
+
+     <!--  <input name="tema" ngModel value="{{tema}}" >
+      <input name="id" ngModel value="{{id}}">  -->
+      <input [(ngModel)]="examen.tema" name="tema" value="{{tema}}" />
+	  <!-- <input [(ngModel)]="examen.id" name="id" value="{{id}}" /> -->
+	  <button (click)="updateExamen(examen)">Actualizar Examen</button>
+
+      <!-- <button>Submit</button> -->
+
+  <!-- (click) passes input value to add() and then clears the input -->
+  	<!-- <button (click)="updateExamen(id, tema)">Actualizar Examen</button> -->
+</div>

@@ -1,0 +1,66 @@
+<h2>Formulario de Examenes</h2>
+<div>
+  <label>Tema: 
+    <input [(ngModel)]="model.tema" name="tema" />
+  </label>
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button (click)="addExamen(model)">Agregar Examen</button>
+
+</div>
+
+<div>
+  <label>Buscar por id: 
+    <input [(ngModel)]="model.id" name="id" />
+  </label>
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button (click)="getId(model)">Busca por id</button>
+<!--   <div *ngIf="tema!==''; then thenBlock"></div>
+ -->  <!-- <div *ngIf="tema!=='' as value; thenBlock">{{tema}}</div> -->
+ <div *ngIf="tema!==''">
+  <h4>El tema buscado es: {{tema}}</h4>
+</div>
+
+ <!--  <ng-template #thenBlock> <h4>El tema buscado es: {{tema}}</h4></ng-template> -->
+ 
+</div>
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Examen</th>
+      <th scope="col">Operaciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr mdbTableCol *ngFor="let examen of examens">
+          <!-- <tr ng-repeat="friend in friends | orderBy:'-age'"> -->
+
+      <th scope="row">{{examen.id}}</th>      
+      <td>{{examen.tema}}</td>      
+      <!-- <td><button (click)="updateView(examen)">Modificar Examen</button></td> -->
+      <td><button (click)="deleteExamen(examen)">Eliminar Examen</button></td>
+      <td><a routerLink="/examen/update/{{examen.id}}">Update</a></td>
+
+    </tr>
+  </tbody>
+</table>
+<hr>
+<ul class="nav nav-pills">
+  <li class="nav-item" *ngFor="let p of pages; let i=index">    
+    <!--Recorremos el número de paginas que encontramos y almacenamos en i-->
+    <a class="nav-link" href="#" (click)="setPage(i, $event)">{{i}}</a>
+  </li>
+  
+</ul>
+
+<!-- <ul class="examenes">
+  <li *ngFor="let examen of examenes">
+    <a routerLink="/detail/{{person.id}}"> 
+	  /* @ngInject <span class="badge">{{examen.id}}</span>
+      <span class="badge">{{examen.tema}}</span>     */
+
+       </a> 
+  </li>
+</ul> -->
